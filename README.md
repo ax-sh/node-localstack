@@ -16,8 +16,10 @@ pnpm up
 ## localstack js
 https://docs.localstack.cloud/user-guide/integrations/sdks/javascript/ 
 
-- awslocal s3api create-bucket --bucket sample-bucket
+- awslocal s3api create-bucket --bucket sample-bucket | jq
 - awslocal s3api list-buckets
+- awslocal s3api list-buckets | jq
+
 
 
 https://docs.localstack.cloud/user-guide/integrations/aws-cdk/
