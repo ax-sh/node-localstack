@@ -25,8 +25,10 @@
     "docker:build": "docker compose build --no-cache",
     "up": "docker compose up --remove-orphans",
     "down": "docker compose down --remove-orphans",
-    "s3:list-buckets": "aws --endpoint-url=http://localhost:4566 s3api list-buckets",
-    "health": "curl localhost:4566/_localstack/health | jq"
+    "s3:list-buckets": "aws --endpoint-url=http://localstack:4566 s3api list-buckets",
+    "s3h:list-buckets": "aws --endpoint-url=http://localhost:4566 s3api list-buckets",
+    "health": "curl localhost:4566/_localstack/health | jq",
+    "health:docker": "curl http://localstack:4566/_localstack/health | jq"
   },
   "packageManager": "pnpm@9.1.2+sha512.127dc83b9ea10c32be65d22a8efb4a65fb952e8fefbdfded39bdc3c97efc32d31b48b00420df2c1187ace28c921c902f0cb5a134a4d032b8b5295cbfa2c681e2"
 }
