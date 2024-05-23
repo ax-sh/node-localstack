@@ -1,0 +1,20 @@
+
+services:
+  api:
+    env_file:
+      - path: ./.env
+        required: true # default
+    build:
+      context: ./
+    container_name: node-localstack
+    ports:
+      - '${PORT}:${PORT}'
+      - '${DEBUG_PORT}:9229'
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DEBUG=express:*
+      - CHOKIDAR_USEPOLLING=true
+    command: pnpm dev
