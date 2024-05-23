@@ -20,6 +20,9 @@ services:
       - NODE_ENV=development
       - DEBUG=express:*
       - CHOKIDAR_USEPOLLING=true
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_ACCESS_KEY_ID=test
+#      - AWS_DEFAULT_REGION
       - LOCALSTACK_HOST=localstack
     command: pnpm dev
     networks:
