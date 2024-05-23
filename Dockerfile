@@ -18,7 +18,7 @@ RUN apk add --update --no-cache python3-dev=~3.12 py3-pip jq curl && ln -sf pyth
 #  Install localstack #
 # =================== #
 RUN apk add --update --no-cache gcc musl-dev linux-headers
-RUN pip install --no-cache-dir --break-system-packages --upgrade localstack
+RUN pip install --no-cache-dir --break-system-packages --upgrade localstack awscli-local
 
 # =================== #
 #  Install AWSCli v2  #
