@@ -3,3 +3,4 @@ export const LOCALSTACK_CONFIG = {
   region: 'us-east-1',
   credentials: { accessKeyId: 'test', secretAccessKey: 'test' }
 };
+export const LOCALSTACK_CONFIG_S3 = { ...LOCALSTACK_CONFIG, forcePathStyle: true };
