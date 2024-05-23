@@ -12,3 +12,7 @@ To run:
 # run it in docker
 pnpm up
 ```
+
+
+localstack js
+https://docs.localstack.cloud/user-guide/integrations/sdks/javascript/
