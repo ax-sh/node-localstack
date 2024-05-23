@@ -1,6 +1,7 @@
 #FROM nikolaik/python-nodejs:latest AS base
 FROM node:20-alpine AS base
 
+
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
@@ -39,8 +40,13 @@ RUN pnpm i
 # Copy in the source
 COPY . .
 
+# RUN echo -e '#!/bin/bash \\n alias cls='clear' > /usr/bin/cls && chmod +x /usr/bin/cls
 # Don't use root user
 USER node
+
+
+
+# alias awslocal="AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION=${DEFAULT_REGION:-$AWS_DEFAULT_REGION} aws --endpoint-url=http://${LOCALSTACK_HOST:-localhost}:4566"
 
 # Expose Port
 EXPOSE 3000

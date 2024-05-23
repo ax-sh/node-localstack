@@ -20,6 +20,7 @@ services:
       - NODE_ENV=development
       - DEBUG=express:*
       - CHOKIDAR_USEPOLLING=true
+      - LOCALSTACK_HOST=localstack
     command: pnpm dev
     networks:
       - my-network
