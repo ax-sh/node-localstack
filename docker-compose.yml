@@ -31,3 +31,5 @@ services:
       - '${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack'
       - '/var/run/docker.sock:/var/run/docker.sock'
       - "/config/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"
+    expose:
+      - 4566
