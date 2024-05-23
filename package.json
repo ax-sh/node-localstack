@@ -29,7 +29,7 @@
     "up": "docker compose up --remove-orphans",
     "down": "docker compose down --remove-orphans",
     "s3:list-buckets": "aws --endpoint-url=http://localstack:4566 s3api list-buckets",
-    "s3h:list-buckets": "aws --endpoint-url=http://localhost:4566 s3api list-buckets",
+    "s3:list": "awslocal s3api list-buckets | jq",
     "health": "curl localhost:4566/_localstack/health | jq",
     "health:docker": "curl http://localstack:4566/_localstack/health | jq"
   },
