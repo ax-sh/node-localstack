@@ -1,6 +1,6 @@
 networks:
   ls:
-    name: ls
+    name: ___ls
 
 services:
   api:
@@ -19,6 +19,7 @@ services:
     environment:
       - NODE_ENV=development
       - DEBUG=express:*
+# Needed for tsx to work properly in docker container
       - CHOKIDAR_USEPOLLING=true
 #      AWS CONFIG
       - AWS_SECRET_ACCESS_KEY=test
