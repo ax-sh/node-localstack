@@ -11,10 +11,14 @@ WORKDIR /usr/src/app
 
 # https://stackoverflow.com/questions/59812009/what-is-the-use-of-pythonunbuffered-in-docker-file
 ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3=~3.12 py3-pip jq curl && ln -sf python3 /usr/bin/python
+RUN apk add --update --no-cache python3-dev=~3.12 py3-pip jq curl && ln -sf python3 /usr/bin/python
 
-# TODO FIX THIS
-# RUN pip install --no-cache-dir --break-system-packages --upgrade localstack
+
+# =================== #
+#  Install localstack #
+# =================== #
+RUN apk add --update --no-cache gcc musl-dev linux-headers
+RUN pip install --no-cache-dir --break-system-packages --upgrade localstack
 
 # =================== #
 #  Install AWSCli v2  #
