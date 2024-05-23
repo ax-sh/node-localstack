@@ -1,6 +1,6 @@
 networks:
-  my-network:
-    driver: bridge
+  ls:
+    name: ls
 
 services:
   api:
@@ -26,9 +26,10 @@ services:
       - AWS_DEFAULT_REGION=us-east-1
 # Needed for aws local to get the adjecent container for localstack
       - LOCALSTACK_HOST=localstack
+      - MAIN_DOCKER_NETWORK=ls
     command: pnpm dev
     networks:
-      - my-network
+      - ls
     depends_on:
       - localstack
   localstack:
@@ -50,4 +51,4 @@ services:
     expose:
       - '4566'
     networks:
-      - my-network
+      - ls

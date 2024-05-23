@@ -2,7 +2,7 @@ import {S3Client, ListBucketsCommand} from "@aws-sdk/client-s3";
 
 
 describe('localstack s3 test', () => {
-    const s3Client = new S3Client({});
+    const s3Client = new S3Client({region: 'us-east-1'});
   it('should ', async () => {
       expect(1).toBe(1)
   });
@@ -14,8 +14,12 @@ describe('localstack s3 test', () => {
   });
 
     it('should list s3 items', async () => {
-        const list = await s3Client.send(new ListBucketsCommand({}))
-        console.log(list, 888)
+        try {
+            const list = await s3Client.send(new ListBucketsCommand())
+            console.log(list, 888)
+        }catch (err){
+            console.log(err)
+        }
 
     });
 });

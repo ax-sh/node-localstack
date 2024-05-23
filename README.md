@@ -14,6 +14,7 @@ pnpm up
 ```
 
 ## localstack js
+https://localstack-docs-preview-pr-444.surge.sh/references/network-troubleshooting/endpoint-url/#from-a-container-localstack-created
 
 https://docs.localstack.cloud/user-guide/integrations/sdks/javascript/
 
