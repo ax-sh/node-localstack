@@ -27,7 +27,6 @@ services:
 # Needed for aws local to get the adjecent container for localstack
 # Needed for windows wsl2 docker to access localhost:4566
       - LOCALSTACK_HOST=localstack
-      - MAIN_DOCKER_NETWORK=ls
     command: pnpm dev
     networks:
       - ls
