@@ -28,7 +28,14 @@ describe('localstack s3 test', () => {
     console.log(r);
   });
 
-  it.only('should upload file', async () => {
+  it.only('should list s3 bucket', async () => {
+    const client = new S3Controller(s3Client);
+    const bucket = client.bucket('sample-buckeat');
+    const r = await bucket.list();
+    console.log(r);
+  });
+
+  it('should upload file', async () => {
     const client = new S3Controller(s3Client);
     const bucket = client.bucket('sample-bucket');
     const buckets = await bucket.uploadFile();

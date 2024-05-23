@@ -1,8 +1,11 @@
 import {
   CreateBucketCommand,
   ListBucketsCommand,
+  ListObjectsCommand,
+  NoSuchBucket,
   PutObjectCommand,
-  S3Client
+  S3Client,
+  type _Object
 } from '@aws-sdk/client-s3';
 
 export async function getAWSCredentials(s3Client: S3Client) {
@@ -16,7 +19,12 @@ export async function listBuckets(s3Client: S3Client) {
   return Buckets;
 }
 
-export class Bucket {
+interface IBucket {
+  create(): any;
+  list(): Promise<_Object[] | undefined>;
+}
+
+export class Bucket implements IBucket {
   constructor(
     public client: S3Client,
     public bucketName: string
@@ -47,6 +55,21 @@ export class Bucket {
       return response;
     } catch (err) {
       console.log(err, 666);
+    }
+  }
+
+  async list() {
+    const command = new ListObjectsCommand({ Bucket: this.bucketName });
+    try {
+      const { Contents } = await this.client.send(command);
+      return Contents;
+    } catch (err) {
+      // throw err;
+      if (err instanceof NoSuchBucket) {
+        const e = err as NoSuchBucket;
+        console.log(e.$metadata, 7777);
+        return undefined;
+      }
     }
   }
 }
