@@ -37,6 +37,9 @@ COPY package.json ./
 COPY pnpm-lock.yaml ./
 RUN pnpm i
 
+# For vitest
+RUN mkdir node_modules/.vite && chmod -R 777 node_modules/.vite
+
 # Copy in the source
 COPY . .
 
@@ -50,3 +53,5 @@ USER node
 
 # Expose Port
 EXPOSE 3000
+
+CMD ["pnpm", "test"]

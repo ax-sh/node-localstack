@@ -20,9 +20,11 @@ services:
       - NODE_ENV=development
       - DEBUG=express:*
       - CHOKIDAR_USEPOLLING=true
+#      AWS CONFIG
       - AWS_SECRET_ACCESS_KEY=test
       - AWS_ACCESS_KEY_ID=test
-      #      - AWS_DEFAULT_REGION
+      - AWS_DEFAULT_REGION=us-east-1
+# Needed for aws local to get the adjecent container for localstack
       - LOCALSTACK_HOST=localstack
     command: pnpm dev
     networks:
