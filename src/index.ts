@@ -2,7 +2,7 @@ import { ListBucketsCommand } from '@aws-sdk/client-s3';
 import * as dotenv from 'dotenv';
 import express from 'express';
 
-import {s3, uploadTest} from './lib';
+import { s3, uploadTest } from './lib';
 
 dotenv.config();
 
@@ -23,7 +23,7 @@ app.get('/', async (req, res) => {
   //     console.log("55555")
   //     console.error(error)
   //   });
-  await  uploadTest()
+  await uploadTest();
 
   res.send('Hello Index!');
 });
