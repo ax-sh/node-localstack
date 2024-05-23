@@ -1,4 +1,5 @@
-FROM node:20-alpine AS base
+FROM nikolaik/python-nodejs:latest AS base
+#FROM node:20-alpine AS base
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -6,6 +7,12 @@ RUN corepack enable
 
 # Create app directory
 WORKDIR /usr/src/app
+
+RUN #apk --no-cache add --virtual builds-deps build-base python3
+RUN pip install --upgrade awscli
+
+
+#CMD ["/bin/bash"]
 
 RUN npm add -g tsx
 
